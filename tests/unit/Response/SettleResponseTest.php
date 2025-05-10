@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\WayForPay\SDK\Response;
+namespace WayForPay\SDK\Tests\unit\Response;
 
 use PHPUnit\Framework\TestCase;
 use WayForPay\SDK\Domain\CardToken;
@@ -48,7 +48,7 @@ class SettleResponseTest extends TestCase {
         foreach ($this->data as $field => $value) {
             if(in_array($field, array('createdDate', 'processingDate'))) {
                 $value = \DateTime::createFromFormat('U', $value);
-            } elseif($field == 'transactionStatus') {
+            } elseif($field === 'transactionStatus') {
                 $field = 'Status';
             }
 
@@ -64,9 +64,11 @@ class SettleResponseTest extends TestCase {
      * @return bool|float|int|string
      */
     private function convertToScalar($value) {
-        if($value instanceof \DateTime) {
+        if ($value instanceof \DateTime) {
             return (string)$value->getTimestamp();
-        } elseif ($value instanceof CardToken) {
+        }
+
+        if($value instanceof CardToken) {
             return $value->getToken();
         }
 

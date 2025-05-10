@@ -199,12 +199,12 @@ class PurchaseForm
         $merchantDomainName,
         $merchantTransactionType = null,
         $merchantTransactionSecureType = null,
-        Client $client = null,
-        Delivery $delivery = null,
-        Avia $avia = null,
-        Regular $regular = null,
-        CardToken $token = null,
-        PaymentSystems $paymentSystems = null,
+        ?Client $client = null,
+        ?Delivery $delivery = null,
+        ?Avia $avia = null,
+        ?Regular $regular = null,
+        ?CardToken $token = null,
+        ?PaymentSystems $paymentSystems = null,
         $serviceUrl = null,
         $returnUrl = null,
         $holdTimeout = null,
@@ -219,31 +219,31 @@ class PurchaseForm
         $apiVersion = 1
     ) {
         $this->credential = $credential;
-        $this->orderReference = strval($orderReference);
-        $this->amount = floatval($amount);
-        $this->currency = strval($currency);
+        $this->orderReference = (string)$orderReference;
+        $this->amount = (float)$amount;
+        $this->currency = (string)$currency;
         $this->products = $products;
         $this->orderDate = $orderDate;
-        $this->merchantDomainName = strval($merchantDomainName);
-        $this->merchantTransactionType = strval($merchantTransactionType);
-        $this->merchantTransactionSecureType = strval($merchantTransactionSecureType);
+        $this->merchantDomainName = (string)$merchantDomainName;
+        $this->merchantTransactionType = (string)$merchantTransactionType;
+        $this->merchantTransactionSecureType = (string)$merchantTransactionSecureType;
         $this->client = $client ?: new Client();
         $this->delivery = $delivery ?: new Delivery();
         $this->avia = $avia ?: new Avia();
         $this->regular = $regular;
         $this->token = $token;
         $this->paymentSystems = $paymentSystems ?: new PaymentSystems();
-        $this->serviceUrl = strval($serviceUrl);
-        $this->returnUrl = strval($returnUrl);
-        $this->holdTimeout = intval($holdTimeout);
-        $this->orderTimeout = intval($orderTimeout);
-        $this->orderLifetime = intval($orderLifetime);
-        $this->merchantAuthType = strval($merchantAuthType);
-        $this->socialUri = strval($socialUri);
-        $this->language = strval($language);
-        $this->orderNo = strval($orderNo);
-        $this->alternativeAmount = floatval($alternativeAmount);
-        $this->alternativeCurrency = strval($alternativeCurrency);
+        $this->serviceUrl = (string)$serviceUrl;
+        $this->returnUrl = (string)$returnUrl;
+        $this->holdTimeout = (int)$holdTimeout;
+        $this->orderTimeout = (int)$orderTimeout;
+        $this->orderLifetime = (int)$orderLifetime;
+        $this->merchantAuthType = (string)$merchantAuthType;
+        $this->socialUri = (string)$socialUri;
+        $this->language = (string)$language;
+        $this->orderNo = (string)$orderNo;
+        $this->alternativeAmount = (float)$alternativeAmount;
+        $this->alternativeCurrency = (string)$alternativeCurrency;
         $this->apiVersion = $apiVersion;
     }
 

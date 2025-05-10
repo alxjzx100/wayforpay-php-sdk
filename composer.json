@@ -3,7 +3,7 @@
     "description": "Wayforpay PHP SDK",
     "type": "library",
     "require": {
-        "php": ">= 5.3.3",
+        "php": ">= 8.1",
         "ext-json": "*",
         "easyframework/collections": "~3.2",
         "anlutro/curl": "^1.4"
