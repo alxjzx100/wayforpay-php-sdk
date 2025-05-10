@@ -21,35 +21,35 @@ class Avia
     /**
      * @var string
      */
-    private $departureDate;
+    private string $departureDate;
 
     /**
      * @var string
      */
-    private $locationNumber;
+    private string $locationNumber;
 
     /**
      * @var string
      */
-    private $locationCodes;
+    private string $locationCodes;
 
     /**
      * @var string
      */
-    private $nameFirst;
+    private string $nameFirst;
 
     /**
      * @var string
      */
-    private $nameLast;
+    private string $nameLast;
 
     /**
      * @var string
      */
-    private $reservationCode;
+    private string $reservationCode;
 
     public function __construct(
-        DateTime $departureDate = null,
+        ?DateTime $departureDate = null,
         $locationNumber = null,
         $locationCodes = null,
         $nameFirst = null,
@@ -57,17 +57,14 @@ class Avia
         $reservationCode = null
     ) {
         $this->departureDate = $departureDate;
-        $this->locationNumber = strval($locationNumber);
-        $this->locationCodes = strval($locationCodes);
-        $this->nameFirst = strval($nameFirst);
-        $this->nameLast = strval($nameLast);
-        $this->reservationCode = strval($reservationCode);
+        $this->locationNumber = (string)$locationNumber;
+        $this->locationCodes = (string)$locationCodes;
+        $this->nameFirst = (string)$nameFirst;
+        $this->nameLast = (string)$nameLast;
+        $this->reservationCode = (string)$reservationCode;
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getDepartureDate()
+    public function getDepartureDate(): DateTime|string|null
     {
         return $this->departureDate;
     }
@@ -75,7 +72,7 @@ class Avia
     /**
      * @return string
      */
-    public function getLocationNumber()
+    public function getLocationNumber(): string
     {
         return $this->locationNumber;
     }
@@ -83,7 +80,7 @@ class Avia
     /**
      * @return string
      */
-    public function getLocationCodes()
+    public function getLocationCodes(): string
     {
         return $this->locationCodes;
     }
@@ -91,7 +88,7 @@ class Avia
     /**
      * @return string
      */
-    public function getNameFirst()
+    public function getNameFirst(): string
     {
         return $this->nameFirst;
     }
@@ -99,7 +96,7 @@ class Avia
     /**
      * @return string
      */
-    public function getNameLast()
+    public function getNameLast(): string
     {
         return $this->nameLast;
     }
@@ -107,7 +104,7 @@ class Avia
     /**
      * @return string
      */
-    public function getReservationCode()
+    public function getReservationCode(): string
     {
         return $this->reservationCode;
     }
