@@ -5,7 +5,7 @@
     "require": {
         "php": ">= 8.1",
         "ext-json": "*",
-        "easyframework/collections": "~6.0",
+        "easyframework/collections": "~7.0",
         "anlutro/curl": "^1.4"
     },
     "require-dev": {
