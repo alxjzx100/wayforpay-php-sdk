@@ -14,7 +14,7 @@
 
 namespace WayForPay\SDK\Collection;
 
-use Easy\Collections\ArrayList;
+use Collections\ArrayList;
 use WayForPay\SDK\Contract\SignatureAbleInterface;
 use WayForPay\SDK\Domain\Product;
 
@@ -69,4 +69,23 @@ class ProductCollection extends ArrayList implements SignatureAbleInterface
             return $product->getPrice();
         })->values();
     }
+
+    public function __serialize(): array
+    {
+        // Store the collection items
+        return [
+            'items' => $this->toArray()
+        ];
+    }
+
+    public function __unserialize(array $data): void
+    {
+        // Restore items to the collection
+        if (isset($data['items']) && is_array($data['items'])) {
+            foreach ($data['items'] as $item) {
+                $this->add($item);
+            }
+        }
+    }
+
 }
