@@ -14,7 +14,7 @@
 
 namespace WayForPay\SDK\Collection;
 
-use Collections\ArrayList;
+use Collections\Vector as ArrayList;
 use WayForPay\SDK\Contract\SignatureAbleInterface;
 use WayForPay\SDK\Domain\Product;
 
@@ -29,10 +29,7 @@ class ProductCollection extends ArrayList implements SignatureAbleInterface
         return parent::add($item);
     }
 
-    /**
-     * @param string $delimiter
-     * @return string
-     */
+
     public function getConcatenatedString($delimiter)
     {
         return implode($delimiter, $this->getNames()) . $delimiter .
@@ -40,9 +37,7 @@ class ProductCollection extends ArrayList implements SignatureAbleInterface
             implode($delimiter, $this->getPrices());
     }
 
-    /**
-     * @return string[]
-     */
+
     public function getNames()
     {
         return $this->map(function (Product $product) {
@@ -50,9 +45,7 @@ class ProductCollection extends ArrayList implements SignatureAbleInterface
         })->values();
     }
 
-    /**
-     * @return int[]
-     */
+
     public function getCounts()
     {
         return $this->map(function (Product $product) {
@@ -60,9 +53,7 @@ class ProductCollection extends ArrayList implements SignatureAbleInterface
         })->values();
     }
 
-    /**
-     * @return float[]
-     */
+
     public function getPrices()
     {
         return $this->map(function (Product $product) {
